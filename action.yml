@@ -1,0 +1,16 @@
+# action.yml
+name: 'SikuliX make jar'
+description: 'Create a jar script using a SikuliX environment'
+inputs:
+  sikuli-folder:  # id of input
+    description: 'Path of the .sikuli folder'
+    required: true
+    default: ''
+outputs:
+  jar-file: # id of output
+    description: 'The jar package generated'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.sikuli-folder }}
